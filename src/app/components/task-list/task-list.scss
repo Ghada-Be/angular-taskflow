@@ -1,0 +1,93 @@
+
+.tasks-card {
+  margin-top: 22px;
+  padding: 26px 30px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e7dcf2;
+}
+
+.label {
+  color: #8529d3;
+  font-size: 12px;
+  letter-spacing: .07em;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 9px 0 18px;
+}
+
+.tasks {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.tasks li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid #e6d9f2;
+  border-radius: 10px;
+  background: #fcfaff;
+}
+
+.tasks small {
+  display: block;
+  color: #6b6178;
+  margin-top: 6px;
+}
+
+button {
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 8px;
+  background: #702fc2;
+  color: white;
+  cursor: pointer;
+}
+
+.delete {
+  background: #fceaf1;
+  color: #a3275c;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.array-debug {
+  font-family: Consolas, 'Courier New', monospace;
+  color: #6c337b;
+  font-weight: bold;
+  margin: 24px 0 8px;
+}
+
+.empty {
+  padding: 18px;
+  background: #f7f1fc;
+  border-radius: 8px;
+}
+
+@media (max-width: 520px) {
+  .tasks-card {
+    padding: 20px 14px;
+  }
+
+  .tasks li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

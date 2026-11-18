@@ -1,0 +1,31 @@
+
+<section class="header-card">
+
+  <p class="label">PAGE 10 — TEMPLATES</p>
+
+  <h1>{{ title || 'Titre supprimé' }}</h1>
+
+  <p>
+    Interpolation, property binding et event binding.
+  </p>
+
+  <div class="buttons">
+
+    <button type="button" (click)="rename()">
+      Renommer
+    </button>
+
+    <button
+      type="button"
+      (click)="deleteTitle()"
+      [disabled]="!canDelete">
+      Supprimer
+    </button>
+
+    <button type="button" (click)="restoreTitle()">
+      Restaurer le titre
+    </button>
+
+  </div>
+
+</section>

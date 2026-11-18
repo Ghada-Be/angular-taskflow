@@ -1,0 +1,69 @@
+
+<section class="tasks-card">
+
+  <p class="label">
+    PAGE 11 — LISTES / PAGE 12 — PIPES
+  </p>
+
+  <h2>Liste des tâches</h2>
+
+  @if (tasks.length === 0) {
+
+    <p class="array-debug">tasks = []</p>
+
+    <p class="empty">
+      Aucune tâche pour l’instant
+    </p>
+
+  } @else {
+
+    <ul class="tasks">
+
+      @for (task of tasks; track task.id) {
+
+        <li>
+
+          <div>
+            <strong>
+              {{ task.title | uppercase }}
+            </strong>
+
+            <small>
+              Échéance :
+              {{ task.dueDate | date:'dd/MM/yyyy' }}
+            </small>
+          </div>
+
+          <button
+            type="button"
+            class="delete"
+            (click)="removeTask(task.id)">
+            Supprimer
+          </button>
+
+        </li>
+
+      }
+
+    </ul>
+
+  }
+
+  <div class="buttons">
+
+    <button
+      type="button"
+      (click)="clearTasks()"
+      [disabled]="tasks.length === 0">
+      Vider la liste
+    </button>
+
+    <button
+      type="button"
+      (click)="restoreTasks()">
+      Restaurer les 3 tâches
+    </button>
+
+  </div>
+
+</section>
