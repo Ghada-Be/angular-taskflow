@@ -1,0 +1,19 @@
+
+input {
+  padding: 11px;
+  border: 1px solid #d9c6ed;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 220px;
+}
+
+input:focus {
+  outline: 2px solid #9c50df;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}

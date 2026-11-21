@@ -1,0 +1,51 @@
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #e6d7f7;
+  border-radius: 12px;
+  background: #faf7ff;
+}
+
+.task-info strong {
+  color: #30134f;
+}
+
+.task-info p {
+  margin: 7px 0 0;
+  font-size: 13px;
+  color: #766389;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #712cc7;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #55209c;
+}
+
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-button {
+  background: #fceaf1;
+  color: #a3275c;
+}

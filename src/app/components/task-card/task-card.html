@@ -1,0 +1,44 @@
+
+<div class="task-card">
+
+  <div class="task-info">
+
+    <strong>
+      {{ task().title | uppercase }}
+    </strong>
+
+    @if (task().dueDate) {
+      <p>
+        Échéance :
+        {{ task().dueDate | date:'dd/MM/yyyy' }}
+      </p>
+    } @else {
+      <p>Sans échéance</p>
+    }
+
+    <p>
+      Statut :
+      {{ task().completed ? 'Terminée' : 'À faire' }}
+    </p>
+
+  </div>
+
+  <div class="task-actions">
+
+    <button
+      type="button"
+      (click)="markDone()"
+      [disabled]="task().completed">
+      {{ task().completed ? 'Terminée' : 'Terminer' }}
+    </button>
+
+    <button
+      type="button"
+      class="delete-button"
+      (click)="remove()">
+      Supprimer
+    </button>
+
+  </div>
+
+</div>

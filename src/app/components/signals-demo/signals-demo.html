@@ -1,0 +1,62 @@
+
+<section class="signals-panel">
+
+  <h2>Faire communiquer les composants</h2>
+
+  <p>
+    <strong>Nombre total : {{ all() }}</strong>
+  </p>
+
+  <p>
+    Tâches disponibles : {{ availableTasks().length }}
+  </p>
+
+  <div class="buttons">
+
+    <input
+      #taskInput
+      type="text"
+      placeholder="Nouvelle tâche..."
+      [value]="newTitle()"
+      (input)="newTitle.set(taskInput.value)"
+    />
+
+    <button (click)="addTask()">
+      Ajouter une tâche
+    </button>
+
+    <button (click)="clear()">
+      Vider la liste
+    </button>
+
+  </div>
+
+  @if (emptyTasks()) {
+
+    <p class="empty">
+      Aucune tâche disponible
+    </p>
+
+  } @else {
+
+    <div class="task-list">
+
+      @for (task of availableTasks(); track task.id) {
+
+        <app-task-card
+          [task]="task"
+          (completed)="onCompleted($event)"
+        />
+
+      }
+
+    </div>
+
+  }
+
+  <p class="explanation">
+    Le parent transmet les tâches avec input().
+    L'enfant remonte l'événement avec output().
+  </p>
+
+</section>

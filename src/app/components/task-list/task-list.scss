@@ -25,16 +25,14 @@ h2 {
   gap: 10px;
 }
 
+
 .tasks li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 13px 15px;
-  border: 1px solid #e6d9f2;
-  border-radius: 10px;
-  background: #fcfaff;
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
 }
+
 
 .tasks small {
   display: block;
