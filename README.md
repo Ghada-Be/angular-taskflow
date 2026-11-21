@@ -1,59 +1,33 @@
-# Taskflow
+# TaskFlow — Angular & TypeScript
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.30.
+Projet réalisé dans le cadre du module Angular, avec pour objectif de comprendre les notions du cours et de les appliquer progressivement dans TaskFlow.
 
-## Development server
+## Séance 1 — Introduction à Angular
 
-To start a local development server, run:
+Lors des premières séances, le professeur nous a montré comment installer et utiliser OneNote pour organiser nos cours, puis comment préparer notre environnement avec Node.js, Angular CLI et VS Code.
 
-```bash
-ng serve
-```
+Nous avons ensuite créé TaskFlow et découvert la structure d'un projet Angular, notamment les composants, les templates et le rôle de TypeScript.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+J'ai travaillé sur les différents types de binding, `@if`, `@for` et les Pipes pour afficher les tâches et formater leurs titres et dates. Nous avons également vu les interfaces TypeScript pour mieux définir la structure de nos données.
 
-## Code scaffolding
+## Séance 2 — Signals et communication entre composants
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cette séance était principalement consacrée aux Signals et à la communication entre composants.
 
-```bash
-ng generate component component-name
-```
+Le professeur nous a expliqué qu'avant, Angular utilisait Zone.js pour détecter les changements, ce qui pouvait entraîner des vérifications inutiles et affecter les performances. Avec le fonctionnement Zoneless, Angular s'appuie sur des notifications plus précises.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Ce que j'ai retenu :
 
-```bash
-ng generate --help
-```
+- `signal()` permet de créer une valeur réactive et `tasks()` de la lire.
+- `set()` remplace une valeur, tandis que `update()` permet de la modifier à partir de son état précédent.
+- Il ne faut pas modifier directement le tableau original. On crée une nouvelle référence avec des méthodes JavaScript comme `filter()` ou `map()`.
+- `computed()` représente une variable calculée automatiquement. Par exemple, `count` dépend de `tasks`, donc on ne le modifie pas directement.
+- `input()` permet à l'enfant de recevoir des données du parent, tandis que `output()` permet de remonter un événement.
+- `[task]` correspond au property binding et `(completed)` à l'event binding.
+- `emit()` permet à l'enfant d'envoyer un événement au parent.
 
-## Building
+Pour mieux comprendre, le professeur nous a donné l'exemple d'un catalogue de produits avec des ProductCard et un service de panier, où l'on peut ajouter un produit, le supprimer par son ID ou modifier sa quantité.
 
-To build the project run:
+Dans TaskFlow, j'ai appliqué la même logique avec `TaskList` comme parent et `TaskCard` comme enfant. Lorsqu'une tâche est terminée, l'enfant transmet son ID au parent, qui met à jour la liste avec `update()`.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+J'ai surtout compris que l'enfant n'a pas besoin de modifier directement les données : il communique avec le parent, qui se charge de gérer les changements.
